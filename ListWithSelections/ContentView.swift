@@ -8,14 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selectedPlayers: [Player] = []
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List {
+                Section("") {
+                    NavigationLink {
+                        PlayersListView(
+                            allPlayers: Player.allPlayers,
+                            selectedPlayers: $selectedPlayers
+                        )
+                    } label: {
+                        Text("Select Players")
+                    }
+                }
+                if !selectedPlayers.isEmpty {
+                    Section("Selected Players") {
+                        ForEach(selectedPlayers) {
+                            Text($0.name)
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Players")
         }
-        .padding()
     }
 }
 
