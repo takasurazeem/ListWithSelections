@@ -12,6 +12,7 @@
 		F968AC692ABF815E0086F841 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F968AC682ABF815E0086F841 /* Assets.xcassets */; };
 		F968AC6C2ABF815E0086F841 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F968AC6B2ABF815E0086F841 /* Preview Assets.xcassets */; };
 		F968AC732ABF817D0086F841 /* PlayersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F968AC722ABF817D0086F841 /* PlayersListView.swift */; };
+		F968AC752ABF8F7F0086F841 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F968AC742ABF8F7F0086F841 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		F968AC682ABF815E0086F841 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F968AC6B2ABF815E0086F841 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F968AC722ABF817D0086F841 /* PlayersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListView.swift; sourceTree = "<group>"; };
+		F968AC742ABF8F7F0086F841 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			children = (
 				F968AC642ABF815D0086F841 /* ListWithSelectionsApp.swift */,
 				F968AC662ABF815D0086F841 /* ContentView.swift */,
+				F968AC742ABF8F7F0086F841 /* ViewModel.swift */,
 				F968AC722ABF817D0086F841 /* PlayersListView.swift */,
 				F968AC682ABF815E0086F841 /* Assets.xcassets */,
 				F968AC6A2ABF815E0086F841 /* Preview Content */,
@@ -142,6 +145,7 @@
 			files = (
 				F968AC732ABF817D0086F841 /* PlayersListView.swift in Sources */,
 				F968AC672ABF815D0086F841 /* ContentView.swift in Sources */,
+				F968AC752ABF8F7F0086F841 /* ViewModel.swift in Sources */,
 				F968AC652ABF815D0086F841 /* ListWithSelectionsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

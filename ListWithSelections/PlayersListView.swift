@@ -11,17 +11,33 @@ struct PlayersListView: View {
     let allPlayers: [Player]
     @State private var selection = Set<Player>()
     @Binding var selectedPlayers: [Player]
+    @State private var searchText = ""
+    var searchResults: [Player] {
+        if searchText.isEmpty {
+            return allPlayers
+        }
+        return allPlayers
+            .filter { $0.name.contains(searchText) }
+    }
     var body: some View {
-        List(allPlayers, id: \.self, selection: $selection) { player in
+        List(
+            searchResults,
+            id: \.self,
+            selection: $selection
+        ) { player in
             Text(player.name)
+        }
+        .onAppear {
+            selection = Set(selectedPlayers)
         }
         .navigationTitle("Select Players")
         .environment(\.editMode, .constant(.active))
         .onChange(of: selection) {
-            if selection.count > 0 {
+            if !selection.isEmpty {
                 selectedPlayers = Array(selection).sorted()
             }
         }
+        .searchable(text: $searchText, prompt: Text("Player name or number"))
     }
 }
 
@@ -34,7 +50,7 @@ struct PlayersListView: View {
 
 
 
-struct Player: Identifiable, Hashable, Comparable {
+struct Player: Codable, Identifiable, Hashable, Comparable {
     static func < (lhs: Player, rhs: Player) -> Bool {
         lhs.number < rhs.number
     }
@@ -45,7 +61,7 @@ struct Player: Identifiable, Hashable, Comparable {
     
     static var allPlayers: [Player] = {
         var players: [Player] = []
-        for number in 1...10 {
+        for number in 1...100 {
             players.append(
                 Player(
                     number: number,

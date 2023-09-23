@@ -8,23 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selectedPlayers: [Player] = []
+    @StateObject var viewModel = ViewModel()
     var body: some View {
         NavigationStack {
             List {
-                Section("") {
+                Section {
                     NavigationLink {
                         PlayersListView(
                             allPlayers: Player.allPlayers,
-                            selectedPlayers: $selectedPlayers
+                            selectedPlayers: $viewModel.selectedPlayers
                         )
                     } label: {
                         Text("Select Players")
                     }
                 }
-                if !selectedPlayers.isEmpty {
+                if !viewModel.selectedPlayers.isEmpty {
                     Section("Selected Players") {
-                        ForEach(selectedPlayers) {
+                        ForEach(viewModel.selectedPlayers) {
                             Text($0.name)
                         }
                     }
